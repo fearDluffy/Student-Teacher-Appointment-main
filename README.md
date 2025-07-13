@@ -28,17 +28,22 @@ An interactive and responsive web application that allows students to seamlessly
 
 ## 📸 Screenshots
 Admin Page
-<img width="1920" height="1405" alt="Admin" src="https://github.com/user-attachments/assets/70fed5e2-b471-4fc4-b1a2-92d85af6d1c3" />
+<img width="1920" height="1405" alt="Admin" src="https://github.com/user-attachments/assets/11d8098a-ca20-4dd9-8a87-677b067a6ede" />
+
 home Page
-<img width="1920" height="1068" alt="Index" src="https://github.com/user-attachments/assets/78940588-8115-431a-b40b-9028993abeca" />
+<img width="1920" height="1068" alt="Index" src="https://github.com/user-attachments/assets/2aec7461-abec-4078-aa7d-3111ece23ed4" />
+
 Sign in page
-<img width="1920" height="1068" alt="SignIn" src="https://github.com/user-attachments/assets/b31f1056-a9d4-422c-908b-bb988d335533" />
+<img width="1920" height="1068" alt="SignIn" src="https://github.com/user-attachments/assets/f3ee8fe2-fcb7-4ca4-b0d6-572aae433bb2" />
+
 sign up page
-<img width="1920" height="1068" alt="SignUp" src="https://github.com/user-attachments/assets/c0bd3aa4-57ca-4f37-8b4b-6dfd2d77869f" />
+<img width="1920" height="1068" alt="SignUp" src="https://github.com/user-attachments/assets/86f0a017-3ff2-4d9b-8c10-47018f6c0277" />
+
 ![Student Dashboard]
-<img width="1920" height="1140" alt="Student" src="https://github.com/user-attachments/assets/a565427a-43f9-4a68-9f73-26438bae64dc" />
+<img width="1920" height="1140" alt="Student" src="https://github.com/user-attachments/assets/0304a130-ff02-4e20-b035-a9e3ef14a609" />
+
 ![Teacher Dashboard]
-<img width="1920" height="1345" alt="Teacher" src="https://github.com/user-attachments/assets/e0969d95-a5fc-459c-89f7-6c39ba11ca3c" />
+<img width="1920" height="1345" alt="Teacher" src="https://github.com/user-attachments/assets/3d201924-ce73-4815-8432-254d0a91df78" />
 
 ---
 
