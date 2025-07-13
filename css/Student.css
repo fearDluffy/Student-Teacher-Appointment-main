@@ -1,0 +1,38 @@
+.Background-Container{
+    background-color:#1e3d58;
+    min-height:100vh;
+}
+.modal-dialog.custom-width {
+    max-width: 95%; /* Adjust the width percentage as needed */
+}
+.Background-Chat-Image{
+    background-image:url("https://res.cloudinary.com/doxjkpn5a/image/upload/v1722718976/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21_sgoxnq.png");
+    background-size:cover;
+    height:80vh;
+}
+.Messages-Form{
+    width:100%;
+    border-style:none;
+    height:35px;
+    border-radius:6px;
+    outline: none!important;
+    padding:10px; 
+}
+.Text-Container{
+    background-color:#ffffff;
+    width:20%;
+    height:7%;
+    text-align: center;
+    border-radius:12px;
+    border-top-right-radius:0;
+}
+.Messages-Text{
+    font-family:"Roboto";
+    color:black;
+    margin-top:6px;
+}
+@media (max-width: 425px) {
+    .Background-Container{
+        min-height:auto;
+    }
+}

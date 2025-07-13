@@ -1,0 +1,16 @@
+.Heading-Time{
+    font-family:"Bree Serif";
+    font-weight: bold;
+    font-size:16px;
+}
+.Messages-Button{
+    margin-top:34px;
+}
+.Main-Heading{
+    font-family:"Roboto";
+    font-size:22px;
+    font-weight:bold;
+}
+.modal-dialog.custom-width {
+    max-width: auto; /* Adjust the width percentage as needed */
+}

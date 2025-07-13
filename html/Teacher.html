@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/Teacher.css">
+    <link rel="stylesheet" href="../css/Admin.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js"></script>
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <!--Popper.js-->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <!--Bootstrap JS-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
+        integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+        crossorigin="anonymous"></script>
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/ac42c3b1f7.js" crossorigin="anonymous"></script>
+
+    <!--Bree Serif-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <!--Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script type="module" src="../javascript/Teacher.js"></script>
+    <script type="module" src="../javascript/Authentication.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#455a64">
+        <a class="navbar-brand" href="#">Teacher DashBoard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="Navbar-User mt-3 mt-lg-0">
+                    Signed In As: <span id="UserName"></span><button id="logoutButton" class="Logout-Button ml-3"><i
+                            class="fa-solid fa-right-from-bracket"></i></button></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-6">
+                <h1 class="Heading-Time mt-5">
+                    Today is: <span id="CurrentStatus"></span>
+                </h1>
+            </div>
+            <div class="col-6 text-right mt-4 mt-md-1">
+                <button type="button" class="btn btn-primary btn-sm Messages-Button" data-toggle="modal" data-target="#exampleModal">View Messages</button>
+            </div>
+        </div>
+    </div>
+    <hr class="mt-0" />
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="DaySelect" class="Main-Heading">Choose Day</label>
+                    <select class="form-control" id="DaySelect">
+                        <option value="">Select Day</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                    </select>
+                </div>
+                <h1 class="Main-Heading">Select Time Slot</h1>
+                <div class="table-responsive rounded">
+                    <table class="table shadow table-hover bg-light rounded">
+                        <thead>
+                            <tr class="Table-Headers text-center">
+                                <th scope="col">Slot-1</th>
+                                <th scope="col">Slot-2</th>
+                                <th scope="col">Slot-3</th>
+                                <th scope="col">Slot-4</th>
+                                <th scope="col">Slot-5</th>
+                            </tr>
+                        </thead>
+                        <tbody class="Table-Rows text-center" id="SlotTable">
+                            <tr>
+                                <td><button type="button" class="btn btn-outline-primary btn-sm slot-btn">9:30 to
+                                        10:30</button></td>
+                                <td><button type="button" class="btn btn-outline-primary btn-sm slot-btn">10:30 to
+                                        11:30</button></td>
+                                <td><button type="button" class="btn btn-outline-primary btn-sm slot-btn">11:30 to
+                                        12:30</button></td>
+                                <td><button type="button" class="btn btn-outline-primary btn-sm slot-btn">1:30 to
+                                        2:30</button></td>
+                                <td><button type="button" class="btn btn-outline-primary btn-sm slot-btn">2:30 to
+                                        3:30</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-right">
+                    <button class="btn btn-primary btn-sm mb-2" id="SubmitSlots">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="mt-0" />
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="Main-Heading">Selected Slots</h1>
+                <div class="table-responsive rounded">
+                    <table class="table shadow table-hover bg-light rounded">
+                        <thead>
+                            <tr class="Table-Headers text-center">
+                                <th scope="col">S.No</th>
+                                <th scope="col">Day</th>
+                                <th scope="col">Slots</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="Table-Rows text-center" id="SelectedSlots">
+                            <tr>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="mt-0" />
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="Main-Heading">Pending Appointments</h1>
+                <div class="table-responsive rounded">
+                    <table class="table shadow table-hover bg-light rounded">
+                        <thead>
+                            <tr class="Table-Headers text-center">
+                                <th scope="col">S.No</th>
+                                <th scope="col">Student Name</th>
+                                <th scope="col">Student Email</th>
+                                <th scope="col">Day</th>
+                                <th scope="col">Selected Slot</th>
+                                <th scope="col">Approve</th>
+                                <th scope="col">Reject</th>
+                            </tr>
+                        </thead>
+                        <tbody class="Table-Rows text-center" id="PendingAppointments">
+                            <tr>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="mt-0" />
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="Main-Heading">My Appointments</h1>
+                <div class="table-responsive rounded">
+                    <table class="table shadow table-hover bg-light rounded">
+                        <thead>
+                            <tr class="Table-Headers text-center">
+                                <th scope="col">S.No</th>
+                                <th scope="col">Student Name</th>
+                                <th scope="col">Student Email</th>
+                                <th scope="col">Day</th>
+                                <th scope="col">Selected Slot</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="Table-Rows text-center" id="MyAppointments">
+                            <tr>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog custom-width">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Messages</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

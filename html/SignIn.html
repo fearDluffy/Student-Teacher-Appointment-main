@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User SignIn</title>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/Authentication.css">
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <!--Popper.js-->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <!--Bootstrap JS-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
+        integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+        crossorigin="anonymous"></script>
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/ac42c3b1f7.js" crossorigin="anonymous"></script>
+
+    <!--Bree Serif-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <!--Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script type = "module" src = "../javascript/firebase-config.js"></script>
+    <script type = "module" src = "../javascript/Authentication.js"></script>
+</head>
+
+<body>
+    <div class="Background-Container">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="Heading text-center mt-3">
+                        Welcome Back! <span class="Heading-Span">Sign In</span> to Your Account
+                    </h1>
+                    <p class="SubHeading mt-3 text-center">
+                        Please enter your credentials to access your account.
+                    </p>
+                    <div id="SubHead">
+                        <p class="SubHeading text-center">
+                            Don't have an account? <a href="SignUp.html">Sign Up</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 mt-5">
+                    <form>
+                        <div class="form-group row">
+                            <label for="SignInEmail" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="SignInEmail"
+                                    placeholder="Please Enter Your E-mail Id" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="SignInPassword" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="SignInPassword"
+                                        placeholder="Please Enter Your Password" required>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button"
+                                            id="ToggleSignInPassword" onclick="toggleSignInPassword()"><i
+                                                class="fa-solid fa-eye"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <fieldset class="form-group">
+                            <div class="row">
+                                <legend class="col-form-label col-sm-2 pt-0">Role</legend>
+                                <div class="col-sm-10">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gridRadios"
+                                            id="SignInTeacherRadio1" value="Teacher">
+                                        <label class="form-check-label" for="SignInTeacherRadio1">
+                                            Teacher
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gridRadios"
+                                            id="SignInStudentRadio2" value="Student">
+                                        <label class="form-check-label" for="SignInStudentRadio2">
+                                            Student
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gridRadios"
+                                            id="SignInAdminRadio3" value="Student">
+                                        <label class="form-check-label" for="SignInAdminRadio3">
+                                            Admin
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="row mt-4 mb-3">
+                            <div class="col-6">
+                                <button type="submit" id="SignInButton" class="btn btn-primary">Sign in</button>
+                            </div>
+                            <div class="col-6 text-right">
+                                <button class="btn btn-primary" type="button"
+                                    onclick="window.location.href='../Index.html';">Back</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../Script.js"></script>
+</body>
+
+</html>

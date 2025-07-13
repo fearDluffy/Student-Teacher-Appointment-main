@@ -1,0 +1,49 @@
+html{
+    scroll-behavior:smooth;
+}
+.navbar{
+    background-color:#212529;
+}
+.Background-Container{
+    background-color:#333333;
+    min-height:100vh;
+}
+.Heading{
+    font-family:"Bree Serif";
+    color:#ffffff;
+    font-weight:bold;
+    font-size:34px;
+}
+.Heading-Span{
+    color:#007bff;
+    font-style:italic;
+}
+.Card{
+    background-color:#f0f0f0;
+    border-style:none;
+    border-radius:12px;
+    width:100%;
+}
+.Image{
+    width:100%;
+    border-radius:12px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.Card-Title{
+    font-family:"Roboto";
+    font-size:18px;
+    color:#003366;
+    font-weight:bold;
+}
+.btn:active{
+    transform: translateY(2px);
+}
+@media (max-width:425px){
+    .Background-Container{
+        min-height:auto;
+    }
+    .Heading{
+        font-size:22px;
+    }
+}

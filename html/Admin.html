@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin DashBoard</title>
+
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/Admin.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js"></script>
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/ac42c3b1f7.js" crossorigin="anonymous"></script>
+
+    <!--Bree Serif-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <!--Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script type="module" src="../javascript/firebase-config.js"></script>
+    <script type="module" src="../javascript/Admin.js"></script>
+    <script type="module" src="../javascript/Authentication.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#455a64">
+        <a class="navbar-brand" href="#">Admin DashBoard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="Navbar-User mt-3 mt-lg-0">
+                    Signed In As: <span id="UserName"></span><button id="logoutButton" class="Logout-Button ml-3"><i
+                            class="fa-solid fa-right-from-bracket"></i></button></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="Background-Container">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mt-2">
+                    <h1 class="Heading">Status</h1>
+                </div>
+            </div>
+        </div>
+        <hr class="mt-0" />
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-12 col-md-3  text-center mt-2">
+                    <div class="Card rounded shadow ml-auto mr-auto pt-2">
+                        <h1 class="Card-Heading">Total Teachers</h1>
+                        <p id="TeacherNumber" class="Card-Text"></p>
+                        <hr />
+                        <button class = "Button" data-toggle = "modal" data-target = "#staticBackdrop">Add Teacher</button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 text-center mt-2">
+                    <div class="Card rounded shadow ml-auto mr-auto pt-2">
+                        <h1 class="Card-Heading">Total Students</h1>
+                        <p id="StudentNumber" class="Card-Text">0</p>
+                        <hr />
+                        <a href = "#AllStudents"><button class = "Button">View Students</button></a>
+                    </div>
+                </div>
+                <div class="col-12 mt-3">
+                    <h1 class="Heading">
+                        All Teachers
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <hr class="mt-0" />
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="table-responsive rounded">
+                        <table class="table shadow table-hover bg-light rounded">
+                            <thead>
+                                <tr class = "Table-Headers">
+                                    <th scope="col">S.No</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Department</th>
+                                    <th scope="col">Subject</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class = "Table-Rows" id="TeacherTable">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="Heading">
+                        Pending Student Requests
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <hr class="mt-0" />
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="table-responsive rounded">
+                        <table class="table shadow table-hover bg-light rounded">
+                            <thead>
+                                <tr class = "Table-Headers text-center">
+                                    <th scope="col">S.No</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Admit</th>
+                                    <th scope="col">Reject</th>
+                                </tr>
+                            </thead>
+                            <tbody class = "Table-Rows" id="ConfirmTable">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" id = "AllStudents">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="Heading">
+                        All Students
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <hr class="mt-0" />
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="table-responsive rounded">
+                        <table class="table shadow table-hover bg-light rounded">
+                            <thead>
+                                <tr class = "Table-Headers text-center">
+                                    <th scope="col">S.No</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                </tr>
+                            </thead>
+                            <tbody class = "Table-Rows" id="StudentsTable">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade ml-auto mr-auto" id="staticBackdrop" data-backdrop="static" data-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Fill Teacher Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="SignUpTeacherName" class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="SignUpTeacherName"
+                                    placeholder="Please Enter Teacher's Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="SignUpWithTeacherEmail" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="SignUpWithTeacherEmail"
+                                    placeholder="Please Enter Your E-mail Id" required autocomplete="username">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="SignUpWithTeacherPassword" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="SignUpWithTeacherPassword"
+                                        placeholder="Please Enter Your Password" required autocomplete="new-password">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button"
+                                            id="ToggleSignUpTeacherPassword" onclick="toggleSignUpTeacherPassword()"><i
+                                                class="fa-solid fa-eye"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="SignUpWithConfirmTeacherPassword" class="col-sm-2 col-form-label">Confirm
+                                Password</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="SignUpWithConfirmTeacherPassword"
+                                        placeholder="Please Confirm Your Password" required autocomplete="new-password">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button"
+                                            id="ToggleSignUpTeacherConfirmPassword"
+                                            onclick="toggleSignUpTeacherConfirmPassword()"><i
+                                                class="fa-solid fa-eye"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <fieldset class="form-group">
+                            <div class="row">
+                                <legend class="col-form-label col-sm-2 pt-0">Role</legend>
+                                <div class="col-sm-10">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gridRadios"
+                                            id="SignUpTeacherRadio3" value="option3" checked>
+                                        <label class="form-check-label" for="SignUpTeacherRadio3">
+                                            Teacher
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="form-group">
+                            <label for="DepartmentSelect">Department</label>
+                            <select class="form-control" id="DepartmentSelect">
+                                <option value="">Select Department</option>
+                                <option value="CS">Computer Science</option>
+                                <option value="DSAI">Data Science & Artificial Intelligence</option>
+                                <option value="CIVIL">Civil</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="SubjectSelect">Subject</label>
+                            <select class="form-control" id="SubjectSelect">
+                                <option value="">Select Subject</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" id="TeacherSignUpButton" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../Script.js"></script>
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <!--Popper.js-->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <!--Bootstrap JS-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
+        integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

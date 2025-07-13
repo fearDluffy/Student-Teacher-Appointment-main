@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Dashboard</title>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css\Styles.css">
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <!--Popper.js-->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <!--Bootstrap JS-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
+        integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+        crossorigin="anonymous"></script>
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/ac42c3b1f7.js" crossorigin="anonymous"></script>
+
+    <!--Bree Serif-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <!--Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="Background-Container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand ml-auto" href="html/SignUp.html">Sign Up</a>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="Heading text-center mt-2">
+                        Welcome to the <br> <span class="Heading-Span">Student-Teacher Booking Appointment</span>
+                        Website
+                    </h1>
+                </div>
+                <div class="col-12 col-md-4 mt-5 text-center">
+                    <div class="Card">
+                        <img src="https://res.cloudinary.com/doxjkpn5a/image/upload/v1721069793/Teacher_badm5p.jpg"
+                            class="Image" />
+                        <p class="Card-Title mb-1">
+                            Teacher
+                        </p>
+                        <button class="btn btn-success btn-sm mb-2" id="TeacherButton" onclick="window.location.href='html/SignIn.html?role=Teacher';">Let's Teach</button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mt-5 text-center">
+                    <div class="Card">
+                        <img src="https://res.cloudinary.com/doxjkpn5a/image/upload/v1721069835/Students_cc2szj.jpg"
+                            class="Image" />
+                        <p class="Card-Title mb-1">
+                            Student
+                        </p>
+                        <button class="btn btn-primary btn-sm mb-2" id="StudentButton" onclick="window.location.href='html/SignIn.html?role=Student';">Let's Learn</button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mt-5 mb-3 text-center">
+                    <div class="Card">
+                        <img src="https://res.cloudinary.com/doxjkpn5a/image/upload/v1721045130/Admin_uvbg8n.jpg"
+                            class="Image" />
+                        <p class="Card-Title mb-1">
+                            Admin
+                        </p>
+                        <button class="btn btn-danger btn-sm mb-2" id="AdminButton" onclick="window.location.href='html/SignIn.html?role=Admin';">Let's Manage</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../Script.js"></script>
+</body>
+
+</html>

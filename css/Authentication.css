@@ -1,0 +1,25 @@
+.Background-Container{
+    background-color:#1e3d58;
+    min-height:100vh;
+}
+.Heading{
+    font-family:"Bree Serif";
+    color:#ffffff;
+    font-weight:bold;
+    font-size:34px;
+}
+.Heading-Span{
+    color:#FF6F61;
+    font-style:italic;
+}
+.SubHeading{
+    font-family:"Roboto";
+    color:#dddddd;
+    font-size:18px;
+}
+.col-form-label{
+    color:#ffffff;
+}
+.form-check-label{
+    color:#ffffff;
+}

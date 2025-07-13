@@ -1,0 +1,91 @@
+html{
+    scroll-behavior:smooth;
+}
+.Background-Container{
+    background-color:#eceff1;
+    min-height:100vh;
+}
+.Navbar-User{
+    font-size:14px;
+    color:#ffffff;
+}
+.Logout-Button{
+    border-style:none;
+    outline: none !important;
+    border-radius:4px;
+    transition:filter 0.3s ease;
+}
+.Logout-Button:hover{
+    filter:brightness(70%);
+}
+.Logout-Button:active{
+    transform:translatey(2px);
+}
+.navbar-toggler{
+    outline: none !important;;
+}
+
+.navbar-toggler:active{
+    transform:translatey(2px);
+
+}
+.Heading{
+    font-family:"Roboto";
+    color:#212121;
+    font-size:26px;
+    text-align:center;
+}
+hr{
+    background-color: #37474f;
+    border-width:2px;
+}
+.Card{
+    width:100%;
+    background-color:#ffffff;
+}
+.Card-Heading{
+    font-family:"Roboto";
+    color: #37474f;
+    font-size:20px;
+}
+.Card-Text{
+    font-family:"Roboto";
+    color: #37474f;
+    font-size:16px;
+}
+.Button{
+    color:#66bb6a;
+    transition: filter 0.3s ease;
+    border-style:none;
+    border-radius:6px;
+    background-color: transparent;
+    outline:none !important;
+}
+.Button:hover{
+    filter: brightness(60%);
+}
+.Button:active{
+    transform:translatey(2px);
+}
+
+.Table-Rows{
+    background-color:#eceff1;
+}
+.Table-Headers{
+    background-color:#607d8b;
+}
+@media (max-width: 426px) {
+    .Background-Container{
+        min-height:auto;
+    }
+}
+@media (width: 320px) {
+    .Card{
+        width:80%;
+    }
+}
+@media (max-width:768px){
+    .Logout-Button:hover{
+        filter:none;
+    }
+}
