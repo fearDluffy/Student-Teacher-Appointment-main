@@ -1,5 +1,7 @@
 # 🎓 Student-Teacher Appointment Booking System
 
+[🔗 **Live Demo**](https://fearDluffy.github.io/Student-Teacher-Appointment-main/)
+
 An interactive and responsive web application that allows students to seamlessly book appointments with teachers based on availability. Built using **HTML**, **CSS**, and **JavaScript**, with **Firebase** integration for real-time data storage, authentication, and appointment management.
 
 ---
